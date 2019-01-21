@@ -21,6 +21,7 @@ const ForumController = () => {
                 }],
                 group: ['forum.id', 'categories.id']
             });
+
             return res.status(200).json(allForums);
         } catch (err) {
             console.log(err);
