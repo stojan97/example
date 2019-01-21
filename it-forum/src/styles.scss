@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/scss/bootstrap.scss";
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+
+.pointer {
+	cursor: pointer;
+}
+
+.bx2 {
+	padding: 20px;
+    box-shadow: 1px 0 10px 1px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03"
+    aria-expanded="false" aria-label="Toggle navigation" style="">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor03">
+    <ul class="navbar-nav mr-auto">
+      <ng-container *ngIf="!loggedIn">
+        <li routerLinkActive="active" class="nav-item">
+          <a routerLink="/register" class="nav-link pointer">
+            <i class="far fa-file-alt"></i> Register
+          </a>
+        </li>
+        <li routerLinkActive="active" class="nav-item">
+          <a routerLink="/login" class="nav-link pointer">
+            <i class="fas fa-user-lock"></i> Login</a>
+        </li>
+      </ng-container>
+      <ng-container *ngIf="loggedIn">
+        <li routerLinkActive="active" class="nav-item">
+          <a routerLink="/threads" class="nav-link pointer">
+            <i class="fas fa-list-ul"></i> Threads </a>
+        </li>
+      </ng-container>
+
+    </ul>
+
+    <ul *ngIf="loggedIn" class="nav navbar-nav navbar-right">
+      <li routerLinkActive="active" class="nav-item">
+        <a class="nav-link pointer" (click)="logout()">
+          <i class="fas fa-sign-out-alt"></i> Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
