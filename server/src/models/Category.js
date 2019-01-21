@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../config/database');
-const Forum = require('./Forum');
+const Thread = require('./Thread');
 
 const Category = sequelize.define('category', {
 
@@ -16,11 +16,10 @@ const Category = sequelize.define('category', {
         allowNull: false
     }
 }, {
-        timestamps: false,
-        underscored: true
+        timestamps: false
     }
 );
 
-Category.belongsTo(Forum);
+Category.hasMany(Thread, { foreignKey: 'category_id' });
 
 module.exports = Category;

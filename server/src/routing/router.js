@@ -11,7 +11,7 @@ router.post('/register', userController().register);
 router.post('/login', userController().login);
 
 // Forum Controller Routes
-router.post('/auth/forum/create', forumController().createForum);
+router.get('/forum/all', forumController().getAll);
 
 // Category Controller Routes
 router.post('/auth/category/create', categoryController().createCategory);

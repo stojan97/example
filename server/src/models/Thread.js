@@ -1,7 +1,8 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../config/database');
 const User = require('./User');
-const Category = require('./Category');
+const Post = require('./Post');
+
 
 const Thread = sequelize.define('thread', {
 
@@ -26,6 +27,6 @@ const Thread = sequelize.define('thread', {
     }
 );
 
-Thread.belongsTo(User, { foreignKey: 'user_id' });
+Thread.hasMany(Post, { foreignKey: 'thread_id' });
 
 module.exports = Thread;

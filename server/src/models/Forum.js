@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../config/database');
+const Category = require('./Category');
 
 const Forum = sequelize.define('forum', {
 
@@ -13,15 +14,12 @@ const Forum = sequelize.define('forum', {
         type: Sequelize.STRING,
         unique: true,
         allowNull: false
-    },
-    createdAt: {
-        type: Sequelize.DATEONLY,
-        field: 'created_at'
     }
 }, {
-        timestamps: true,
-        updatedAt: false
+        timestamps: false
     }
 );
+
+Forum.hasMany(Category, { foreignKey: 'forum_id' });
 
 module.exports = Forum;

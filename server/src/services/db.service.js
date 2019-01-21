@@ -1,7 +1,7 @@
 const database = require('../config/database');
-const threadService = require('./threads.service');
+const DatabaseUtil = require('../util/db.util');
 
-const dbService = (migrate) => {
+const dbService = (migrate, fillDatabase) => {
     const authenticateDB = () => database.authenticate();
 
     const dropDB = () => database.drop();
@@ -52,7 +52,10 @@ const dbService = (migrate) => {
     const start = async () => {
 
         await startDev();
-        threadService().createThreads();
+        if (fillDatabase){
+            DatabaseUtil().fillDatabase();
+        }
+        
     };
 
     return {

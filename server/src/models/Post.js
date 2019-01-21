@@ -1,7 +1,5 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../config/database');
-const User = require('./User');
-const Thread = require('./Thread');
 
 const Post = sequelize.define('post', {
 
@@ -24,8 +22,5 @@ const Post = sequelize.define('post', {
         updatedAt: false
     }
 );
-
-Post.belongsTo(User, { foreignKey: 'user_id' });
-Post.belongsTo(Thread, { foreignKey: 'thread_id' });
 
 module.exports = Post;

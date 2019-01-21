@@ -20,7 +20,7 @@ app.all('/api/auth/*', (req, res, next) => auth(req, res, next));
 app.use('/api', routes);
 
 // Start Database service
-const DB = dbService(false).start();
+const DB = dbService(false, true).start();
 
 const server = http.createServer(app);
 server.listen(port, () => {

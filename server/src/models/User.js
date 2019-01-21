@@ -1,7 +1,8 @@
 const Sequelize = require('sequelize');
 const bcryptService = require('../services/bcrypt.service');
-
 const sequelize = require('../config/database');
+const Thread = require('./Thread');
+const Post = require('./Post');
 
 const hooks = {
     beforeCreate(user) {
@@ -52,5 +53,9 @@ User.prototype.toJSON = function () {
 
     return values;
 };
+
+
+User.hasMany(Thread, { foreignKey: 'user_id' });
+User.hasMany(Post, { foreignKey: 'user_id' });
 
 module.exports = User;
